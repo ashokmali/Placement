@@ -1,0 +1,15 @@
+def bfsalgo(i, adjlist, visited):
+    q = [i]
+    while q:
+       element = q.pop(0)
+       for neighbour in adjlist[element]:
+           if visited[neighbour] == False:
+               visited[neighbour] = True
+               q.append(neighbour)
+
+def bfs(adjlist):
+    visited = [False]*len(adjlist)
+    for i in range (len(adjlist)):
+        if visited[i] == False:
+            visited[i] = True
+            bfsalgo(i, adjlist, visited)
