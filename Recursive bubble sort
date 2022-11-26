@@ -1,0 +1,38 @@
+class BubbleSortRec:
+    def __init__(self, arr):
+        self.arr = arr
+ 
+    def recBS(self, len_arr):
+        # -- base condition for recursion --
+        if (len_arr == 0 or len_arr == 1):
+            return
+        # -- loop through the array --
+        for i in range(len_arr-1):
+            if self.arr[i] < self.arr[i+1]:
+                self.arr[i], self.arr[i+1] = self.arr[i+1], self.arr[i]
+        # -- recursive itteration --
+        self.recBS(len_arr - 1)
+ 
+        return self.arr
+ 
+    def printArr(self, arr):
+        # base condition for recursion
+        if len(arr) == 0:
+            return
+        item = arr.pop()
+        print(item, end=" ")
+        self.printArr(arr)
+ 
+ 
+class RunBubbleRec:
+    @staticmethod
+    def main(args):
+        arr = [2, 5, 1, 6, 9]
+        n = len(arr)
+        my_bubble = BubbleSortRec(arr)
+        sorted_arr = my_bubble.recBS(n)
+        my_bubble.printArr(sorted_arr)
+ 
+ 
+if __name__ == "__main__":
+    RunBubbleRec.main([])
